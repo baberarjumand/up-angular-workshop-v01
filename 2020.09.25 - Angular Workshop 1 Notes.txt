@@ -1,0 +1,163 @@
+Up Pay
+Angular Workshop 1 Notes
+Sep 25, 2020
+
+--
+
+Install Prerequisites:
+
+1. NodeJS
+- https://nodejs.org/en/
+- LTS Version
+- Check installation status, run these commands in CLI
+	node -v
+	npm -v
+	
+2. Angular CLI
+- https://angular.io/guide/setup-local
+- Install via CLI using NPM: 
+	npm install -g @angular/cli
+- Check installation status, run these commands in CLI
+	ng version (or 'ng v')
+	
+3. Visual Studio Code (or your favorite code editor)
+- Optional Extensions:
+	https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials
+	Extension ID in VS Code Extensions Tab: johnpapa.angular-essentials
+	- Angular Snippets
+	- Angular Language Service
+	- ESLint
+	- Prettier
+	- npm
+	- Material Icon Theme
+	
+--
+
+Simple HTML CSS JS Example
+
+- See code in folder
+- this structure of JS/HTML/CSS file is repeated all over angular
+	- helps keep code organized, easy to read and understand
+
+--
+
+Start your first new Angular project
+
+- https://angular.io/guide/setup-local
+
+1. Create new workspace/project folder
+	ng new
+	Enter project name
+	Yes to Angular Routing
+	Stylesheets: SCSS/Sass/Stylus
+	
+2. Open folder in VS Code
+
+3. Serve the project locally
+	npm run start
+	
+--
+
+Explore the new project
+
+Package.json
+- list of packages (and their versions) installed for current project
+- scripts
+	- npm scripts, can run from cli
+	- we can define custom scripts as well
+	- npm run <SCRIPT_NAME>
+- Dependencies and devDependencies
+	- devDependencies only compile in development phase of project
+	
+Angular.json
+- not in too much detail for now
+- just know that this is the config file for your project
+	- you can customize how your app is built/compiled
+	- and many other options
+	
+src folder
+- the crux of an angular project
+
+index.html
+- the base html file that is served in the browser
+
+styles.scss
+- gets compiled to a css file
+
+main.ts
+- TS file, gets compiled to JS file
+- equivalent of 'app.js' file in earlier example
+- bootstraps AppModule
+- this is just 'good-to-have' background knowledge
+	- might help in debugging weird errors/situations
+	- not critical knowledge, but helps build good understanding
+	
+app.module.ts
+- root module of project
+- can have child modules, will discuss in detail in another workshop
+
+- module files are recognized by the '@NgModule' decorator function
+
+- 'declarations' hold components in app, will discuss components in detail shortly
+- 'imports' holds modules that are imported
+	- for now, these are built-in modules supplied by angular to provide relevant functionlaties
+- 'providers' holds injectable services, will discuss services in detail shortly
+- 'bootstrap': will discuss at a much later stage
+	- will not need to use for now
+	
+app.component.ts
+- root component of project
+- can have child components
+
+- component files are recognized by the '@Component' decorator function
+- a component is a collection of 3 files
+	- TS file
+	- HTML template file
+	- SCSS/SASS/CSS styles file
+	- Optional SPEC file, used for testing, will not discuss now
+
+- 'selector' is the name of the html tag used to make use of this component
+- 'templateUrl' defines the HTML template for this component
+- 'styleUrls' defines the styles file for this component
+
+There is some (a lot) of code supplied by default.
+Let's see what this code looks like
+
+Run: npm run start
+Once build is complete, navigate to http://localhost:4200/ in browser
+
+--
+
+Time to build our own components
+
+Get rid of all placeholder code in app.component.html
+
+Generate 2 new components:
+	ng generate (type this only and see all possible options for generation)
+	ng generate component pages/tab1 (OR 'ng g c pages/tab1')
+	ng g c pages/tab2
+	
+Configure routing in app-routing.module.ts
+	See code
+	
+Set up Tab1 and Tab2
+	Create buttons to navigate between them
+	Center all text on tab2 to distinguish from tab1
+	
+Setup individual counters on each tab
+	Create button to increment counters
+
+Setup a service to share the same counter state between two tabs
+	ng g service shared/services/counter
+	
+Final example: shared styles file vs individual component styles file
+	h1 text-center example
+
+--
+
+Additional Resources
+
+Typescript Playground:
+https://www.typescriptlang.org/play
+
+
