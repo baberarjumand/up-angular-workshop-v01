@@ -17,10 +17,10 @@ const routes: Routes = [
     redirectTo: 'tab1',
     pathMatch: 'full',
   },
-  // {
-  //   path: '**',
-  //   redirectTo: '',
-  // },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
